@@ -13,10 +13,10 @@ const navBar = () => {
         <li class="nav-item">
           <a class="nav-link" href="#" id="create-entry--">Create Entry</a>
         </li>
-        <span class="navbar-text">
-          <div id="logout-button"></div>
-        </span>
       </ul>
+      <span class="navbar-text">
+      <div id="logout-button"></div>
+    </span>
     </div>
   </div>
 </nav>`;
