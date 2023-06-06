@@ -1,9 +1,11 @@
-import { getEntries, deleteEntry, getSingleEntry } from '../api/entryData';
+import {
+  getEntries, deleteEntry, getSingleEntry, getPythonEntries, getJSEntries, getPHPEntries, getCEntries
+} from '../api/entryData';
 import addEntry from '../forms/addEntry';
 import { cardsOnDom } from '../pages/entries';
 
 const domEvents = () => {
-  document.querySelector('#main').addEventListener('click', (e) => {
+  document.querySelector('#app').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-entry')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
@@ -17,6 +19,26 @@ const domEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
 
       getSingleEntry(firebaseKey).then((entryObj) => addEntry(entryObj));
+    }
+
+    if (e.target.id === 'clear') {
+      getEntries().then(cardsOnDom);
+    }
+
+    if (e.target.id === 'python') {
+      getPythonEntries().then(cardsOnDom);
+    }
+
+    if (e.target.id === 'javascript') {
+      getJSEntries().then(cardsOnDom);
+    }
+
+    if (e.target.id === 'PHP') {
+      getPHPEntries().then(cardsOnDom);
+    }
+
+    if (e.target.id === 'c#') {
+      getCEntries().then(cardsOnDom);
     }
   });
 };

@@ -3,8 +3,8 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(219,216,187,1) 35%, rgba(0,212,255,1) 100%);
   text-align: center;
 }
 
@@ -17,4 +17,10 @@ body {
   margin: 0 auto;
   width: 60%;
   margin-top: 200px
+}
+
+.cardbtn {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }

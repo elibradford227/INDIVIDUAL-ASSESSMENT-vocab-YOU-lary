@@ -16,8 +16,8 @@ const cardsOnDom = (array) => {
             <h5 class="card-title">${item.title}</h5>
               <p class="card-text bold">${item.language}</p>
               <p class="card-text bold">${item.definition}</p>
-              <i id="edit-entry-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
-              <i id="delete-entry-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
+              <i id="edit-entry-btn--${item.firebaseKey}" class="cardbtn">Edit</i>
+              <i id="delete-entry-btn--${item.firebaseKey}" class="cardbtn">Delete</i>
               <hr>
           </div>
         </div>`;
