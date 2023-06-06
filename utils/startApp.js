@@ -6,6 +6,7 @@ import { cardsOnDom } from '../pages/entries';
 import navigationEvents from '../events/navigationEvents';
 import formEvents from '../events/formEvents';
 import domEvents from '../events/domEvents';
+import filterButtons from '../components/filters';
 
 const startApp = () => {
   domBuilder();
@@ -15,6 +16,7 @@ const startApp = () => {
   logoutButton();
   formEvents();
   domEvents();
+  filterButtons();
   getEntries().then((entries) => cardsOnDom(entries));
 };
 

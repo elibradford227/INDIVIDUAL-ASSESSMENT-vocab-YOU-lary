@@ -58,6 +58,78 @@ const deleteEntry = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSingleEntry = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const getPythonEntries = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="python"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const lang = Object.values(data).filter((item) => item.language);
+      resolve(lang);
+    })
+    .catch(reject);
+});
+
+const getJSEntries = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="javascript"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const lang = Object.values(data).filter((item) => item.language);
+      resolve(lang);
+    })
+    .catch(reject);
+});
+
+const getPHPEntries = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="PHP"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const lang = Object.values(data).filter((item) => item.language);
+      resolve(lang);
+    })
+    .catch(reject);
+});
+
+const getCEntries = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="C#"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const lang = Object.values(data).filter((item) => item.language);
+      resolve(lang);
+    })
+    .catch(reject);
+});
+
 export {
-  getEntries, createEntry, updateEntry, deleteEntry
+  getEntries, createEntry, updateEntry, deleteEntry, getSingleEntry, getPythonEntries, getJSEntries, getPHPEntries, getCEntries
 };
