@@ -16,6 +16,7 @@ const cardsOnDom = (array) => {
             <h5 class="card-title">${item.title}</h5>
               <p class="card-text bold">${item.language}</p>
               <p class="card-text bold">${item.definition}</p>
+              <i id="delete-book-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
               <hr>
           </div>
         </div>`;
