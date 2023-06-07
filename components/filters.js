@@ -6,7 +6,7 @@ const filterButtons = () => {
     <button class="btn btn-secondary btn-lg buttonRow" id="python">python</button>
     <button class="btn btn-secondary btn-lg buttonRow" id="javascript">Javascript</button>
     <button class="btn btn-secondary btn-lg buttonRow" id="PHP">PHP</button>
-    <button class="btn btn-secondary btn-lg buttonRow" id="c#"> C#</button>
+    <button class="btn btn-secondary btn-lg buttonRow" id="c"> C#</button>
     <button class="btn btn-secondary btn-lg buttonRow" id="clear">Clear Filter</button>
   </div>
   `;

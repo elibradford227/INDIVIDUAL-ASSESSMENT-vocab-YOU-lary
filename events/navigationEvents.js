@@ -3,15 +3,14 @@ import filterButtons from '../components/filters';
 import addEntry from '../forms/addEntry';
 import { cardsOnDom } from '../pages/entries';
 
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   document.querySelector('#create-entry--').addEventListener('click', () => {
-    console.warn('clicked!');
-    addEntry({});
+    addEntry(user.uid);
   });
 
   document.querySelector('#logo').addEventListener('click', () => {
     filterButtons();
-    getEntries().then((entries) => cardsOnDom(entries));
+    getEntries(user.uid).then((entries) => cardsOnDom(entries));
   });
 };
 

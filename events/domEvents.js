@@ -22,7 +22,7 @@ const domEvents = (user) => {
     }
 
     if (e.target.id === 'clear') {
-      getEntries().then(cardsOnDom);
+      getEntries(user.uid).then(cardsOnDom);
     }
 
     if (e.target.id === 'python') {
@@ -30,15 +30,15 @@ const domEvents = (user) => {
     }
 
     if (e.target.id === 'javascript') {
-      getJSEntries().then(cardsOnDom);
+      getJSEntries(user.uid).then(cardsOnDom);
     }
 
     if (e.target.id === 'PHP') {
-      getPHPEntries().then(cardsOnDom);
+      getPHPEntries(user.uid).then(cardsOnDom);
     }
 
-    if (e.target.id === 'c#') {
-      getCEntries().then(cardsOnDom);
+    if (e.target.id === 'c') {
+      getCEntries(user.uid).then(cardsOnDom);
     }
   });
 };
