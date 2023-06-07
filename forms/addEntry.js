@@ -13,10 +13,13 @@ const addEntry = (obj = {}) => {
       <label for="text">Definition</label>
       <input type="text" class="form-control" id="definition" placeholder="Enter a definition" value="${obj.definition || ''}" required>
     </div>
-    <div class="form-group">
-      <label for="title">Language</label>
-      <input type="text" class="form-control" id="language" placeholder="Enter language" value="${obj.language || ''}" required>
-    </div>
+    <select class="form-select" id="language" aria-label="Default select example">
+      <option selected>Choose a language</option>
+      <option value="python">python</option>
+      <option value="PHP">PHP</option>
+      <option value="javascript">javascript</option>
+      <option value="c#">c#</option>
+    </select>
     <button type="submit" class="btn btn-primary mt-3">Submit Vocab Card</button>
   </form>`;
 
