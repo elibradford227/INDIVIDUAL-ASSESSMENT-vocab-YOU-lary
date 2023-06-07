@@ -40,6 +40,28 @@ const domEvents = (user) => {
     if (e.target.id === 'c') {
       getCEntries(user.uid).then(cardsOnDom);
     }
+
+    if (e.target.id.includes('sort')) {
+      const yes = document.querySelector('#sort');
+      // eslint-disable-next-line prefer-destructuring
+      const value = yes.value;
+      console.warn(value);
+      if (value === 'Alphabetically') {
+        console.warn('YES BITCH');
+        getEntries(user.uid).then((data) => {
+          const filtered = data.sort((a, b) => {
+            if (a.title < b.title) {
+              return -1;
+            }
+            if (a.title > b.title) {
+              return 1;
+            }
+            return 0;
+          });
+          cardsOnDom(filtered);
+        });
+      }
+    }
   });
 };
 

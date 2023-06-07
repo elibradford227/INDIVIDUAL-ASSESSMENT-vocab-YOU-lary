@@ -9,6 +9,12 @@ const filterButtons = () => {
     <button class="btn btn-secondary btn-lg buttonRow" id="c"> C#</button>
     <button class="btn btn-secondary btn-lg buttonRow" id="clear">Clear Filter</button>
   </div>
+  <div>
+    <select class="form-select" aria-label="Default select example" id="sort">
+    <option selected>Sort by</option>
+      <option value="Alphabetically">Alpabetically</option>
+    </select>
+  </div>
   `;
   renderToDOM('#filters--', domString);
 };
