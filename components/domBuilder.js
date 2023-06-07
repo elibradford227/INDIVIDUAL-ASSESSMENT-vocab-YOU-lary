@@ -5,7 +5,7 @@ const domBuilder = () => {
   <div id="navigation"></div>
   <div id="filters--"></div>
   <div id="main-container">
-    <div id="main">HELLO</div>
+    <div id="main" class="row row-cols-2 row-cols-md-5 g-4">HELLO</div>
   </div>`;
 
   renderToDOM('#app', domString);

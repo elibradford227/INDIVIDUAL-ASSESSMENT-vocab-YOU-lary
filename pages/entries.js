@@ -11,6 +11,7 @@ const cardsOnDom = (array) => {
   let domString = '';
   array.forEach((item) => {
     domString += `
+    <div class="col">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
@@ -20,7 +21,8 @@ const cardsOnDom = (array) => {
               <i id="delete-entry-btn--${item.firebaseKey}" class="cardbtn">Delete</i>
               <hr>
           </div>
-        </div>`;
+        </div>
+      </div>`;
   });
   renderToDOM('#main', domString);
 };
