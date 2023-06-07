@@ -2,8 +2,8 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-const getEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json`, {
+const getEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -70,8 +70,8 @@ const getSingleEntry = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getPythonEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="python"`, {
+const getPythonEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -79,14 +79,14 @@ const getPythonEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const lang = Object.values(data).filter((item) => item.language);
+      const lang = Object.values(data).filter((item) => item.language === 'python');
       resolve(lang);
     })
     .catch(reject);
 });
 
-const getJSEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="javascript"`, {
+const getJSEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -94,14 +94,14 @@ const getJSEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const lang = Object.values(data).filter((item) => item.language);
+      const lang = Object.values(data).filter((item) => item.language === 'javascript');
       resolve(lang);
     })
     .catch(reject);
 });
 
-const getPHPEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="PHP"`, {
+const getPHPEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -109,14 +109,14 @@ const getPHPEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const lang = Object.values(data).filter((item) => item.language);
+      const lang = Object.values(data).filter((item) => item.language === 'PHP');
       resolve(lang);
     })
     .catch(reject);
 });
 
-const getCEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="C#"`, {
+const getCEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ const getCEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const lang = Object.values(data).filter((item) => item.language);
+      const lang = Object.values(data).filter((item) => item.language === 'c#');
       resolve(lang);
     })
     .catch(reject);

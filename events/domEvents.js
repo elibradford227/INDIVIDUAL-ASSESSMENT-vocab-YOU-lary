@@ -4,14 +4,14 @@ import {
 import addEntry from '../forms/addEntry';
 import { cardsOnDom } from '../pages/entries';
 
-const domEvents = () => {
+const domEvents = (user) => {
   document.querySelector('#app').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-entry')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = (e.target.id.split('--'));
         deleteEntry(firebaseKey).then(() => {
-          getEntries().then(cardsOnDom);
+          getEntries(user.uid).then(cardsOnDom);
         });
       }
     }
@@ -22,23 +22,23 @@ const domEvents = () => {
     }
 
     if (e.target.id === 'clear') {
-      getEntries().then(cardsOnDom);
+      getEntries(user.uid).then(cardsOnDom);
     }
 
     if (e.target.id === 'python') {
-      getPythonEntries().then(cardsOnDom);
+      getPythonEntries(user.uid).then(cardsOnDom);
     }
 
     if (e.target.id === 'javascript') {
-      getJSEntries().then(cardsOnDom);
+      getJSEntries(user.uid).then(cardsOnDom);
     }
 
     if (e.target.id === 'PHP') {
-      getPHPEntries().then(cardsOnDom);
+      getPHPEntries(user.uid).then(cardsOnDom);
     }
 
-    if (e.target.id === 'c#') {
-      getCEntries().then(cardsOnDom);
+    if (e.target.id === 'c') {
+      getCEntries(user.uid).then(cardsOnDom);
     }
   });
 };

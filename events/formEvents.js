@@ -1,7 +1,7 @@
 import { createEntry, getEntries, updateEntry } from '../api/entryData';
 import { cardsOnDom } from '../pages/entries';
 
-const formEvents = () => {
+const formEvents = (user) => {
   document.querySelector('#main').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -10,13 +10,14 @@ const formEvents = () => {
         title: document.querySelector('#title').value,
         definition: document.querySelector('#definition').value,
         language: document.querySelector('#language').value,
+        uid: user.uid,
       };
 
       createEntry(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
 
         updateEntry(patchPayload).then(() => {
-          getEntries().then(cardsOnDom);
+          getEntries(user.uid).then(cardsOnDom);
         });
       });
     }
@@ -31,7 +32,7 @@ const formEvents = () => {
       };
 
       updateEntry(payload).then(() => {
-        getEntries().then(cardsOnDom);
+        getEntries(user.uid).then(cardsOnDom);
       });
     }
   });
