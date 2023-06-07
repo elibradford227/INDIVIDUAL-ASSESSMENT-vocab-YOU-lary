@@ -2,8 +2,8 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-const getEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json`, {
+const getEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -70,8 +70,8 @@ const getSingleEntry = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getPythonEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="language"&equalTo="python"`, {
+const getPythonEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

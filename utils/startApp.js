@@ -8,16 +8,16 @@ import formEvents from '../events/formEvents';
 import domEvents from '../events/domEvents';
 import filterButtons from '../components/filters';
 
-const startApp = () => {
-  domBuilder();
+const startApp = (user) => {
+  domBuilder(user);
   navBar();
-  navigationEvents();
+  navigationEvents(user);
   // cardsOnDom([1, 2, 3, 4]);
   logoutButton();
-  formEvents();
-  domEvents();
-  filterButtons();
-  getEntries().then((entries) => cardsOnDom(entries));
+  formEvents(user);
+  domEvents(user);
+  filterButtons(user);
+  getEntries(user.uid).then((entries) => cardsOnDom(entries));
 };
 
 export default startApp;
