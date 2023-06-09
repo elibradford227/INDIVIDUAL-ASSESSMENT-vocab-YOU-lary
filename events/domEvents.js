@@ -45,16 +45,14 @@ const domEvents = (user) => {
       const yes = document.querySelector('#sort');
       // eslint-disable-next-line prefer-destructuring
       const value = yes.value;
-      console.warn(value);
       if (value === 'Alphabetically') {
-        console.warn('YES BITCH');
         getEntries(user.uid).then((data) => {
           const filtered = data.sort((a, b) => {
-            if (a.title < b.title) {
-              return -1;
-            }
             if (a.title > b.title) {
               return 1;
+            }
+            if (a.title < b.title) {
+              return -1;
             }
             return 0;
           });

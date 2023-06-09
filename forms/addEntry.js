@@ -13,8 +13,8 @@ const addEntry = (obj = {}) => {
       <label for="text">Definition</label>
       <input type="text" class="form-control" id="definition" placeholder="Enter a definition" value="${obj.definition || ''}" required>
     </div>
-    <select class="form-select" id="language" aria-label="Default select example">
-      <option selected>Choose a language</option>
+    <select class="form-select" id="language" aria-label="Choose a language" required>
+      <option value="">Please select</option>
       <option value="python">python</option>
       <option value="PHP">PHP</option>
       <option value="javascript">javascript</option>

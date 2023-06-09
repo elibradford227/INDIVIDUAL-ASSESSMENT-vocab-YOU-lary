@@ -16,7 +16,7 @@ const filterButtons = () => {
     </select>
   </div>
   `;
-  renderToDOM('#filters--', domString);
+  renderToDOM('#filters', domString);
 };
 
 export default filterButtons;

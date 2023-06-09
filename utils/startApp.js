@@ -12,7 +12,6 @@ const startApp = (user) => {
   domBuilder(user);
   navBar();
   navigationEvents(user);
-  // cardsOnDom([1, 2, 3, 4]);
   logoutButton();
   formEvents(user);
   domEvents(user);
