@@ -1,4 +1,3 @@
-import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
 const noEntries = () => {
@@ -7,7 +6,6 @@ const noEntries = () => {
 };
 
 const cardsOnDom = (array) => {
-  clearDom();
   let domString = '';
   array.forEach((item) => {
     domString += `

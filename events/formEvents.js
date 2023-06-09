@@ -1,5 +1,6 @@
 import { createEntry, getEntries, updateEntry } from '../api/entryData';
 import { cardsOnDom } from '../pages/entries';
+import filterButtons from '../components/filters';
 
 const formEvents = (user) => {
   document.querySelector('#main').addEventListener('submit', (e) => {
@@ -18,6 +19,7 @@ const formEvents = (user) => {
 
         updateEntry(patchPayload).then(() => {
           getEntries(user.uid).then(cardsOnDom);
+          filterButtons();
         });
       });
     }
@@ -33,6 +35,7 @@ const formEvents = (user) => {
 
       updateEntry(payload).then(() => {
         getEntries(user.uid).then(cardsOnDom);
+        filterButtons();
       });
     }
   });
