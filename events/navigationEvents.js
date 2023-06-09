@@ -5,7 +5,8 @@ import { cardsOnDom } from '../pages/entries';
 
 const navigationEvents = (user) => {
   document.querySelector('#create-entry--').addEventListener('click', () => {
-    addEntry(user.uid);
+    console.warn('clicked!');
+    addEntry({});
   });
 
   document.querySelector('#logo').addEventListener('click', () => {
