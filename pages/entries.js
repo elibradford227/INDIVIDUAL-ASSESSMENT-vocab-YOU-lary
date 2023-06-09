@@ -12,7 +12,7 @@ const cardsOnDom = (array) => {
   array.forEach((item) => {
     domString += `
     <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card text-bg-dark mb-3" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
               <p class="card-text bold">${item.language}</p>
